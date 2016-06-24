@@ -1,0 +1,1 @@
+![Alt text](react_redux.jpg)
