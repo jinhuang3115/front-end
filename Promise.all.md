@@ -1,6 +1,6 @@
 ```javascript
     if (typeof Promise.all !== "function"){
-        Promise.all = (arr) => {
+        Promise.prototype.all = (arr) => {
             const results = [];
             return new Promise((resolve => {
                 arr.forEach((item, index) => {
