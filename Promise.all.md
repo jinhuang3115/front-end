@@ -3,12 +3,17 @@
         Promise.all = (arr) => {
             const results = [];
             return new Promise((resolve => {
+                let i = 0;
+                const resolvePromise = (k, v) => {
+                    i++;
+                    results.push(v);
+                    if (i === arr.length){
+                        resolve(results)
+                    }
+                }
                 arr.forEach((item, index) => {
                     item.then((res) => {
-                        results.push(res);
-                        if (index === arr.length - 1){
-                            resolve(results);
-                        }
+                        resolvePromise(index, res);
                     });
                 });
             }));
@@ -18,13 +23,13 @@
         setTimeout(() => {
             console.log('a');
             resolve('a');
-        }, 1000)
+        }, 5000)
     });
     let b = new Promise( resolve => {
         setTimeout(() => {
             console.log('b');
             resolve('b');
-        }, 2000)
+        }, 1000)
     });
     let c = new Promise( resolve => {
         setTimeout(() => {
