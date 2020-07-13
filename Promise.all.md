@@ -6,7 +6,7 @@
                 let i = 0;
                 const resolvePromise = (k, v) => {
                     i++;
-                    results.push(v);
+                    results[k] = v;
                     if (i === arr.length){
                         resolve(results)
                     }
