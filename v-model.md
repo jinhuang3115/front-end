@@ -10,7 +10,7 @@
    };
    const vModules = document.querySelectorAll('[v-model]');
    vModules.forEach((item) => {
-       const type = item.getAttribute('v-module');
+       const type = item.getAttribute('v-model');
        obj[type] = '';
        item.addEventListener('input', (e) => {
            const target = e.target;
